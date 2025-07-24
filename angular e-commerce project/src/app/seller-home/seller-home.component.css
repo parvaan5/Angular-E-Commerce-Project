@@ -1,0 +1,24 @@
+table{
+    text-align: left;
+    color: red;
+    border-collapse: collapse;
+}
+table td,table th{
+    border: 1px solid red;
+    padding: 10px;
+    min-height: 160px; 
+}
+img{
+    width: 100px;
+    height: 100px;
+}
+/*.par{
+    display: inline-block;
+    vertical-align: middle;
+}*/
+h1{
+    color: red;
+}
+.adjust-update-link{
+    margin-left: 10px;
+}

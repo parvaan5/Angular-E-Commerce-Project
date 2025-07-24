@@ -1,0 +1,23 @@
+<!--<p>product-details works!</p>-->
+<div class="row product-details" *ngIf="productdata">
+  <div class="col-sm-6">
+    <img class="product-image" src="{{ productdata.image }}" alt="" />
+    <div class="details">
+      <h1>{{ productdata.name }}</h1>
+      <h3>Price: {{ productdata.price }}</h3>
+
+      <h5>Color:{{ productdata.color }}</h5>
+
+      <h6>Category: {{ productdata.category }}</h6>
+      <h6>Details: {{ productdata.description }}</h6>
+      <button *ngIf="!removecart" class="form-button" (click)="addtocart()">Add to cart</button>
+      <button *ngIf="removecart" class="form-button" (click)="removetocart(productdata.id)">Remove to cart</button>
+      <button class="form-button">Buy Now</button>
+      <div class="quantity-group">
+        <button (click)="handlequantity('min')">-</button>
+        <input type="text" value="{{productquantity}}" />
+        <button (click)="handlequantity('plus')">+</button>
+      </div>
+    </div>
+  </div>
+</div>

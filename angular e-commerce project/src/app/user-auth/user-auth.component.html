@@ -1,0 +1,78 @@
+<!--<p>user-auth works!</p>-->
+<div class="user-auth">
+  <div *ngIf="!showlogin" class="user-signup">
+    <h1>User Sign-up</h1>
+    <form
+      #usersignup="ngForm"
+      (ngSubmit)="signup(usersignup.value)"
+      class="common-form"
+    >
+      <input
+        type="text"
+        class="form-input"
+        placeholder="Enter User name"
+        name="name"
+        ngModel
+      />
+      <input
+        type="text"
+        class="form-input"
+        placeholder="Enter User email"
+        name="email"
+        ngModel
+      />
+      <input
+        type="password"
+        class="form-input"
+        placeholder="Enter User password"
+        name="password"
+        ngModel
+      />
+      <button class="form-button">Sign-up</button>
+      <p>Already have account ? <a (click)="openlogin()">Click Here</a></p>
+    </form>
+  </div>
+  <div *ngIf="showlogin" class="user-login">
+    <h1>User Login</h1>
+    <form
+      #userlogin="ngForm"
+      (ngSubmit)="login(userlogin.value)"
+      class="common-form"
+    >
+      <p class="error-p">{{ autherror }}</p>
+      <input
+        type="text"
+        class="form-input"
+        placeholder="Enter User email"
+        name="email"
+        ngModel
+        #email="ngModel"
+        required
+        email
+      />
+      <p class="invalid-input">
+        <span *ngIf="email.invalid && email.touched"
+          >please enter a valid e-mail</span
+        >
+      </p>
+      <input
+        type="password"
+        class="form-input"
+        placeholder="Enter User password"
+        name="password"
+        ngModel
+        #password="ngModel"
+        required
+        minlength="2"
+        maxlength="20"
+      />
+      <p class="invalid-input">
+        <span *ngIf="password.invalid && password.touched"
+          >please enter a valid password</span
+        >
+      </p>
+      <button [disabled]="userlogin.invalid" class="form-button">Login</button>
+      <p>Don't have account ? <a (click)="opensignup()">Click Here</a></p>
+    </form>
+  </div>
+</div>
